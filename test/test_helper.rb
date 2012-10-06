@@ -1,13 +1,31 @@
+# encoding: utf-8
+
 ENV["RAILS_ENV"] = "test"
+
 require File.expand_path('../../config/environment', __FILE__)
+
+require 'peck/flavors/vanilla'
+require 'peck_on_rails'
+
 require 'rails/test_help'
 
+#%w(
+  #test/test_helper
+#).each do |path|
+  #Dir.glob(Rails.root + path + '**/*.rb').each { |file| require file }
+#end
+
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  #include TestHelper::Assertions
+end
+
+class ActionController::TestCase
+  #include TestHelper::CookieAuthentication
+  #include TestHelper::Preferences
+
+  #def start_url
+    #@controller.send(:start_url)
+  #end
 end

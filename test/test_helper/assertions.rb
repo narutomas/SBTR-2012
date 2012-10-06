@@ -2,6 +2,10 @@
 
 module TestHelper
   module Assertions
+    def assert_not_errors_on(record, attribute)
+      assert record.errors[attribute].blank?, "Expected #{record} to not have errors on #{attribute}"
+    end
+
     def assert_errors_on(record, attribute)
       assert !record.errors[attribute].blank?, "Expected #{record} to have errors on #{attribute}"
     end
@@ -12,6 +16,18 @@ module TestHelper
 
     def assert_valid(record)
       assert record.valid?, "Expected #{record} to be valid"
+    end
+
+    def assert_not_validates_with(record, attribute, value)
+      record.send("#{attribute}=", value)
+      record.valid?
+      assert_errors_on(record, attribute)
+    end
+
+    def assert_validates_with(record, attribute, value)
+      record.send("#{attribute}=", value)
+      record.valid?
+      assert_not_errors_on(record, attribute)
     end
 
     def assert_changes(*changes, &block)

@@ -9,16 +9,16 @@ require 'peck_on_rails'
 
 require 'rails/test_help'
 
-#%w(
-  #test/test_helper
-#).each do |path|
-  #Dir.glob(Rails.root + path + '**/*.rb').each { |file| require file }
-#end
+%w(
+  test/test_helper
+).each do |path|
+  Dir.glob(Rails.root + path + '**/*.rb').each { |file| require file }
+end
 
 class ActiveSupport::TestCase
   fixtures :all
 
-  #include TestHelper::Assertions
+  include TestHelper::Assertions
 end
 
 class ActionController::TestCase

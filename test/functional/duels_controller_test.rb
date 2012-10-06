@@ -9,4 +9,11 @@ class DuelsControllerTest < ActionController::TestCase
     assert_template 'duels/new'
     assert_select 'form'
   end
+
+  test "creates a new duel" do
+    assert_changes 'Duel.count', +1 do
+      post :create, :duel => { :title => "dystopia", :rules => "TODO" }
+    end
+    assert_redirected_to duel_path(assigns(:duel))
+  end
 end

@@ -1,4 +1,11 @@
 <%= form_for @duel do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :rules %>
+    <%= f.text_area :rules %>
+  </div>
 <% end %>

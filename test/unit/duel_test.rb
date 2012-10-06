@@ -19,3 +19,14 @@ class DuelValidationTest < ActiveSupport::TestCase
     assert_validates_with @duel, :rules, "TODO"
   end
 end
+
+class DuelAssociationTest < ActiveSupport::TestCase
+  setup do
+    @duel = Duel.new
+  end
+
+  test "by default assigns all contestants" do
+    assert_equal @duel.contestant_assignments.map(&:contestant), contestants(:jeru, :tomas)
+    #assert_equal @duel.contestants, contestants(:jeru, :tomas)
+  end
+end

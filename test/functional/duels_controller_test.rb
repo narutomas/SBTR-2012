@@ -16,4 +16,12 @@ class DuelsControllerTest < ActionController::TestCase
     end
     assert_redirected_to duel_path(assigns(:duel))
   end
+
+  test "sees validation errors" do
+    assert_not_changes 'Duel.count' do
+      post :create, :duel => {}
+    end
+    assert_template 'duels/new'
+    assert_select 'div.field_with_errors'
+  end
 end

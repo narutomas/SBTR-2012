@@ -4,7 +4,11 @@ class DuelsController < ApplicationController
   end
 
   def create
-    @duel = Duel.create(params[:duel])
-    redirect_to duel_path(@duel)
+    @duel = Duel.new(params[:duel])
+    if @duel.save
+      redirect_to duel_path(@duel)
+    else
+      render :new
+    end
   end
 end

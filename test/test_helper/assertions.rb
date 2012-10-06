@@ -30,6 +30,23 @@ module TestHelper
       assert_not_errors_on(record, attribute)
     end
 
+    def assert_not_changes(*changes, &block)
+      block_binding = block.send(:binding)
+      before = changes.map do |expression|
+        eval(expression, block_binding)
+      end
+
+      block_result = block.call
+
+      changes.each_with_index do |expression, index|
+        after = eval(expression, block_binding)
+        error = "#{expression.inspect} changed by #{after - before[index]}"
+        assert_equal(before[index], after, error)
+      end
+
+      block_result
+    end
+
     def assert_changes(*changes, &block)
       block_binding = block.send(:binding)
       before = changes.in_groups_of(2).map do |expression, change|

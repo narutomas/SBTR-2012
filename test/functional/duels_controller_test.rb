@@ -2,7 +2,47 @@
 
 require File.expand_path('../../test_helper', __FILE__)
 
-class DuelsControllerTest < ActionController::TestCase
+class DuelsControllerWithVisitorTest < ActionController::TestCase
+  self._controller_class = DuelsController
+
+  test "sees the overview of a duel" do
+    get :show, :id => duels(:dystopia).to_param
+    assert_response :ok
+    assert_template 'duels/show'
+  end
+
+  test "does not see a new duel form" do
+    get :new
+    assert_response :unauthorized
+  end
+
+  test "does not create a duel" do
+    assert_not_changes 'Duel.count' do
+      post :create, :duel => { :title => "dystopia", :rules => "TODO", :number_of_photos_per_contestant => 3 }
+    end
+    assert_response :unauthorized
+  end
+
+  test "does not see an edit form" do
+    get :edit, :id => duels(:dystopia).to_param
+    assert_response :unauthorized
+  end
+
+  test "does not update a duel" do
+    before = duels(:dystopia).title
+    put :update, :id => duels(:dystopia).to_param, :duel => { :title => "UPDATED" }
+    assert_response :unauthorized
+    assert_equal before, duels(:dystopia).reload.title
+  end
+end
+
+class DuelsControllerWithAdminTest < ActionController::TestCase
+  self._controller_class = DuelsController
+
+  setup do
+    @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials("admin", "secret")
+  end
+
   test "sees a new duel form" do
     get :new
     assert_response :ok
@@ -38,11 +78,5 @@ class DuelsControllerTest < ActionController::TestCase
     put :update, :id => duels(:dystopia).to_param, :duel => { :title => "Dystopia" }
     assert_equal "Dystopia", duels(:dystopia).reload.title
     assert_redirected_to edit_duel_path(duels(:dystopia))
-  end
-
-  test "sees the overview of a duel" do
-    get :show, :id => duels(:dystopia).to_param
-    assert_response :ok
-    assert_template 'duels/show'
   end
 end

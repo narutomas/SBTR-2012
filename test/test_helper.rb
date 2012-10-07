@@ -2,6 +2,8 @@
 
 ENV["RAILS_ENV"] = "test"
 
+ENV["ADMIN_PASSWORD"] = "5ebe2294ecd0e0f08eab7690d2a6ee69"
+
 ENV["AWS_ACCESS_KEY_ID"] = "secret"
 ENV["AWS_SECRET_ACCESS_KEY"] = "secret"
 

@@ -1,4 +1,6 @@
 class DuelsController < ApplicationController
+  before_filter :block_access, :except => :show
+
   def new
     @duel = Duel.new
   end

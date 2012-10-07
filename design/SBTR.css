@@ -13,7 +13,21 @@ h1 {
 	padding-left: 4px;
 	padding-right: 4;
 	margin-bottom: 0;
-	
+}
+
+div.header {
+  overflow: hidden;
+  width: 100%;
+}
+div.header div,h2,p {
+	float: left;
+}
+/* TODO: Need to find a better way to make this div NOT take up more space than needed, besides a fixed width */
+div.header div {
+	width: 220px;
+}
+div.header p.rules {
+	width: 700px;
 }
 
 p.tagline {
@@ -22,13 +36,6 @@ p.tagline {
 	letter-spacing: 4px;
 	font-size: 12;
 	margin-top: 0;
-	width: 300px;
-	text-align:justify;
-	
-}
-
-div.header {
-	display: inline;
 }
 
 h2 {
@@ -36,7 +43,6 @@ h2 {
 	background-color: #d7d7d7;
 	letter-spacing: 0;
 	font-size: 20;
-	
 }
 
 h3 {

@@ -18,7 +18,7 @@
     <%= f.fields_for :contestant_assignments do |caf| %>
       <h3><%= caf.object.contestant.name %></h3>
       <%= caf.fields_for :photos do |pf| %>
-        <%= image_tag(pf.object.image_url) if pf.object.image_url %>
+        <%= image_tag(pf.object.image_url(:thumb)) if pf.object.image_url %>
         <%= pf.file_field :image, :accept => 'image/*' %>
       <% end %>
     <% end %>

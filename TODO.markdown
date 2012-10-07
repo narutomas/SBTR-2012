@@ -4,6 +4,7 @@
 * Make ‘previous’ and ‘next’ links work.
 * Add ‘about’ page.
 * Show duel rules.
+* When downscaling the photos, use sharpen and whatever else is needed.
 * Add published flag to duel and never show it to a visitor when it’s `false`.
 * Enable page caching.
 

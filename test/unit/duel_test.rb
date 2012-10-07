@@ -18,6 +18,12 @@ class DuelValidationTest < ActiveSupport::TestCase
     assert_not_validates_with @duel, :rules, " "
     assert_validates_with @duel, :rules, "TODO"
   end
+
+  test "requires an amount of photos per contestant" do
+    assert_not_validates_with @duel, :number_of_photos_per_contestant, nil
+    assert_not_validates_with @duel, :number_of_photos_per_contestant, 0
+    assert_validates_with @duel, :number_of_photos_per_contestant, 3
+  end
 end
 
 class DuelAssociationTest < ActiveSupport::TestCase

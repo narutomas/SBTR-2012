@@ -1,9 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  title: MyString
-  rules: MyText
-
-two:
-  title: MyString
-  rules: MyText
+dystopia:
+  title: Dystopia
+  rules: TODO
+  number_of_photos_per_contestant: 3

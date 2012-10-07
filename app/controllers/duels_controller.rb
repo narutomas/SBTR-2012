@@ -6,7 +6,7 @@ class DuelsController < ApplicationController
   def create
     @duel = Duel.new(params[:duel])
     if @duel.save
-      redirect_to duel_path(@duel)
+      redirect_to duel_photos_path(@duel)
     else
       render :new
     end

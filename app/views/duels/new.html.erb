@@ -5,7 +5,14 @@
   </div>
 
   <div>
+    <%= f.label :number_of_photos_per_contestant %>
+    <%= f.text_field :number_of_photos_per_contestant %>
+  </div>
+
+  <div>
     <%= f.label :rules %>
     <%= f.text_area :rules %>
   </div>
+
+  <%= f.submit %>
 <% end %>

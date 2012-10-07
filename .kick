@@ -1,0 +1,17 @@
+recipe :ignore
+ignore(/^(\.git|tmp|log)/)
+
+#process do |files|
+  #files.take_and_map do |file|
+    #case file
+    #when /^design\/requirements.txt$/
+      #input_file = 'design/requirements.txt'
+      #output_file = 'design/requirements.html'
+      #log `saga #{input_file} > #{output_file}`
+      #log "\n\n" + `saga planning #{input_file}`
+      #files.delete(file)
+    #end
+  #end
+#end
+
+recipe :rails

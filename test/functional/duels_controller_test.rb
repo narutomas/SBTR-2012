@@ -14,7 +14,7 @@ class DuelsControllerTest < ActionController::TestCase
     assert_changes 'Duel.count', +1 do
       post :create, :duel => { :title => "dystopia", :rules => "TODO" }
     end
-    assert_redirected_to duel_path(assigns(:duel))
+    assert_redirected_to duel_photos_path(assigns(:duel))
   end
 
   test "sees validation errors" do

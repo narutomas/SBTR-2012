@@ -1,5 +1,6 @@
 ### App
 
+* Add ‘new’ and ‘edit’ links when authenticated.
 * Add published flag to duel and never show it to a visitor when it’s `false`.
 * Enable page caching.
 

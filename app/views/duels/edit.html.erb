@@ -1,0 +1,27 @@
+<%= form_for @duel do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :number_of_photos_per_contestant %>
+    <%= f.text_field :number_of_photos_per_contestant, :disabled => true %>
+  </div>
+
+  <div>
+    <%= f.label :rules %>
+    <%= f.text_area :rules %>
+  </div>
+
+  <% @duel.contestants.each do |contestant| %>
+    <h3><%= contestant.name %></h3>
+    <% @duel.number_of_photos_per_contestant.times do |i| %>
+      <div>
+        <label>Photo <%= i+1 %>: <input type="file" name="duel[contestants][<%= contestant.to_param %>][photos][]" accept="image/*"></label>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

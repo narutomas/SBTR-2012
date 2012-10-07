@@ -1,7 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  contestant_id: 1
-
-two:
-  contestant_id: 1
+dystopia_jeru:
+  duel: dystopia
+  contestant: jeru
+dystopia_tomas:
+  duel: dystopia
+  contestant: tomas

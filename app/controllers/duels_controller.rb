@@ -6,9 +6,20 @@ class DuelsController < ApplicationController
   def create
     @duel = Duel.new(params[:duel])
     if @duel.save
-      redirect_to duel_photos_path(@duel)
+      redirect_to edit_duel_path(@duel)
     else
       render :new
+    end
+  end
+
+  def edit
+    @duel = Duel.find(params[:id])
+  end
+
+  def update
+    @duel = Duel.find(params[:id])
+    if @duel.update_attributes(params[:duel])
+      redirect_to edit_duel_path(@duel)
     end
   end
 end

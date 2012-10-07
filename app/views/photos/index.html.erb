@@ -1,8 +1,0 @@
-<%= form_for @duel do |f| %>
-  <% @duel.number_of_photos_per_contestant.times do |i| %>
-    <div>
-      <label>Photo <%= i+1 %>: <input type="file" accept="image/*"></label>
-    </div>
-  <% end %>
-  <%= f.submit %>
-<% end %>

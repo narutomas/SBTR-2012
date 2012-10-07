@@ -103,3 +103,15 @@ p.footer span a {
 	color: black;
 		
 }
+
+p.about {
+	color: #ffffff;
+	background-color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+p.body {
+	color: gray;
+	font-size: 15px;
+}

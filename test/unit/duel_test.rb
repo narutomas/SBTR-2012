@@ -25,8 +25,9 @@ class DuelAssociationTest < ActiveSupport::TestCase
     @duel = Duel.new
   end
 
-  test "by default assigns all contestants" do
+  test "by default assigns all contestants on create" do
+    @duel.save(:validate => false)
     assert_equal @duel.contestant_assignments.map(&:contestant), contestants(:jeru, :tomas)
-    #assert_equal @duel.contestants, contestants(:jeru, :tomas)
+    assert_equal @duel.contestants, contestants(:jeru, :tomas)
   end
 end

@@ -1,5 +1,6 @@
 class ContestantAssignment < ActiveRecord::Base
-  has_one :contestant
+  belongs_to :contestant
+  belongs_to :duel
   has_many :photos
 
   attr_accessible :contestant

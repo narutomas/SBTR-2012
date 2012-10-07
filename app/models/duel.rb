@@ -6,7 +6,7 @@ class Duel < ActiveRecord::Base
 
   validates :title, :rules, :presence => true
 
-  after_initialize :assign_contestants
+  before_create :assign_contestants
 
   private
 

@@ -1,7 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  contestant_assignment_id: 1
-
-two:
-  contestant_assignment_id: 1
+dystopia_jeru_1:
+  contestant_assignment: dystopia_jeru
+dystopia_jeru_2:
+  contestant_assignment: dystopia_jeru
+dystopia_jeru_3:
+  contestant_assignment: dystopia_jeru
+dystopia_tomas_1:
+  contestant_assignment: dystopia_tomas
+dystopia_tomas_2:
+  contestant_assignment: dystopia_tomas
+dystopia_tomas_3:
+  contestant_assignment: dystopia_tomas

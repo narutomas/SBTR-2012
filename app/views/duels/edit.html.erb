@@ -1,4 +1,4 @@
-<%= form_for @duel do |f| %>
+<%= form_for @duel, :html => { :multipart => true } do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -14,14 +14,16 @@
     <%= f.text_area :rules %>
   </div>
 
-  <% @duel.contestants.each do |contestant| %>
-    <h3><%= contestant.name %></h3>
-    <% @duel.number_of_photos_per_contestant.times do |i| %>
-      <div>
-        <label>Photo <%= i+1 %>: <input type="file" name="duel[contestants][<%= contestant.to_param %>][photos][]" accept="image/*"></label>
-      </div>
+  <div>
+    <%= f.fields_for :contestant_assignments do |caf| %>
+      <h3><%= caf.object.contestant.name %></h3>
+      <%= caf.fields_for :photos do |pf| %>
+        <%= pf.file_field :image, :accept => 'image/*' %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
-  <%= f.submit %>
+  <div>
+    <%= f.submit %>
+  </div>
 <% end %>

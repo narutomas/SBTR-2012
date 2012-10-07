@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg'
 
+gem 'carrierwave'
+
 group :test do
   gem 'peck',                                :require => false
   gem 'peck-on-rails',                       :require => false

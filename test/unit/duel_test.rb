@@ -28,12 +28,23 @@ end
 
 class DuelAssociationTest < ActiveSupport::TestCase
   setup do
-    @duel = Duel.new
+    @duel = Duel.new(:number_of_photos_per_contestant => 3)
   end
 
   test "by default assigns all contestants on create" do
-    @duel.save(:validate => false)
+    assert_changes 'ContestantAssignment.count', +2 do
+      @duel.save(:validate => false)
+    end
     assert_equal @duel.contestant_assignments.map(&:contestant), contestants(:jeru, :tomas)
     assert_equal @duel.contestants, contestants(:jeru, :tomas)
+  end
+
+  test "creates the amount of photo records required on create" do
+    assert_changes 'Photo.count', +6 do
+      @duel.save(:validate => false)
+    end
+    @duel.contestant_assignments.each do |ca|
+      assert_equal 3, ca.photos.count
+    end
   end
 end

@@ -27,6 +27,10 @@ p.tagline {
 	
 }
 
+div.header {
+	display: inline;
+}
+
 h2 {
 	color: black;
 	background-color: #d7d7d7;

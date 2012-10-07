@@ -1,0 +1,30 @@
+<div class="header">
+  <div>
+    <h1>SHOOT BY THE RULES</h1>
+    <p class="tagline">A PHOTOGRAPHIC DUEL</p>
+  </div>
+  <h2><%= @duel.id %>. <%= @duel.title.upcase %></h2>
+
+  <!--<p class="rules">Black & White or Colour / City Environment / 4 Final Photos / Urban Decay/ / Cant be staged / Outside photography / Outside / Must be shot from a moving object / must be shot using shutter Black & White or Colour / City Environment / speed of 1 second / Cant be staged / Outside photography /Black & White or Colour / City Environment /</p>-->
+</div>
+
+<% @duel.contestant_assignments.each do |ca| %>
+  <div>
+    <h3><%= ca.contestant.name.upcase %></h3>
+    <ol>
+      <% ca.photos.each do |photo| %>
+        <% if thumb_url = photo.image_url(:thumb) %>
+          <li><%= image_tag thumb_url %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+<% end %>
+
+<p class="footer">
+  <span><a href="#TODO">PREVIOUS</a> / <a href="#TODO">NEXT</a></span>
+  <a href="#TODO">/ ABOUT</a>
+  </p>
+</p>
+
+

@@ -22,4 +22,8 @@ class DuelsController < ApplicationController
       redirect_to edit_duel_path(@duel)
     end
   end
+
+  def show
+    @duel = Duel.find(params[:id])
+  end
 end

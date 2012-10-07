@@ -39,4 +39,10 @@ class DuelsControllerTest < ActionController::TestCase
     assert_equal "Dystopia", duels(:dystopia).reload.title
     assert_redirected_to edit_duel_path(duels(:dystopia))
   end
+
+  test "sees the overview of a duel" do
+    get :show, :id => duels(:dystopia).to_param
+    assert_response :ok
+    assert_template 'duels/show'
+  end
 end

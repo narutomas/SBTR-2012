@@ -8,3 +8,4 @@
 * 16. Dystopia moves when browser resize
 * tagline justify?
 * fix bulletpoint in page title
+* Backend needs some love

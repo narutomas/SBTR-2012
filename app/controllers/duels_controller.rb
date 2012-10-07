@@ -1,5 +1,5 @@
 class DuelsController < ApplicationController
-  before_filter :block_access, :except => :show
+  before_filter :block_access, :except => [:show, :latest]
 
   def new
     @duel = Duel.new
@@ -27,5 +27,10 @@ class DuelsController < ApplicationController
 
   def show
     @duel = Duel.find(params[:id])
+  end
+
+  def latest
+    @duel = Duel.order('id DESC').limit(1).first
+    redirect_to duel_url(@duel)
   end
 end

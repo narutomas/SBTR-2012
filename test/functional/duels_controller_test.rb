@@ -11,6 +11,11 @@ class DuelsControllerWithVisitorTest < ActionController::TestCase
     assert_template 'duels/show'
   end
 
+  test "is redirected to the latest duel" do
+    get :latest
+    assert_redirected_to duel_url(duels(:dystopia))
+  end
+
   test "does not see a new duel form" do
     get :new
     assert_response :unauthorized

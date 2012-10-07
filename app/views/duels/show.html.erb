@@ -1,12 +1,4 @@
-<div class="header">
-  <div>
-    <h1>SHOOT BY THE RULES</h1>
-    <p class="tagline">A PHOTOGRAPHIC DUEL</p>
-  </div>
-  <h2><%= @duel.id %>. <%= @duel.title.upcase %></h2>
-
-  <!--<p class="rules">Black & White or Colour / City Environment / 4 Final Photos / Urban Decay/ / Cant be staged / Outside photography / Outside / Must be shot from a moving object / must be shot using shutter Black & White or Colour / City Environment / speed of 1 second / Cant be staged / Outside photography /Black & White or Colour / City Environment /</p>-->
-</div>
+<%= render :partial => 'duels/header' %>
 
 <% @duel.contestant_assignments.each do |ca| %>
   <div>
@@ -14,7 +6,7 @@
     <ol>
       <% ca.photos.each do |photo| %>
         <% if thumb_url = photo.image_url(:thumb) %>
-          <li><%= image_tag thumb_url %></li>
+          <li><%= link_to image_tag(thumb_url), duel_contestant_photos_path(@duel, ca.contestant) %></li>
         <% end %>
       <% end %>
     </ol>
@@ -24,7 +16,6 @@
 <p class="footer">
   <span><a href="#TODO">PREVIOUS</a> / <a href="#TODO">NEXT</a></span>
   <a href="#TODO">/ ABOUT</a>
-  </p>
 </p>
 
 

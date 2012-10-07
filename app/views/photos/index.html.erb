@@ -1,0 +1,16 @@
+<%= render :partial => 'duels/header' %>
+
+<div>
+  <h3><%= @contestant_assignment.contestant.name.upcase %></h3>
+  <ol>
+    <% @contestant_assignment.photos.each do |photo| %>
+      <% if image_url = photo.image_url %>
+        <li><%= image_tag image_url %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>
+
+<p class="footer">
+<span><%= link_to "BACK", duel_path(@duel) %></span>
+</p>

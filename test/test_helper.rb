@@ -2,6 +2,9 @@
 
 ENV["RAILS_ENV"] = "test"
 
+ENV["AWS_ACCESS_KEY_ID"] = "secret"
+ENV["AWS_SECRET_ACCESS_KEY"] = "secret"
+
 require File.expand_path('../../config/environment', __FILE__)
 
 require 'peck/flavors/vanilla'

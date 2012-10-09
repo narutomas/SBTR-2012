@@ -9,6 +9,7 @@
 * Enable page caching.
 * Add edit Number of photos per contestants?
 * When opening homepage: show latest duel WITH photo's (Since we will post rules of next week on site, but this must'n be the home page. only when you press 'next can you view them. Maybe show a placeholder where photo's should be? like a picture of a questionmark)
+* When in detail view of one contestant's photo's clicking on a photo = back also
 
   ### Design
 

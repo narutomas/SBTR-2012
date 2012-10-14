@@ -4,10 +4,16 @@ body {
 	margin-left: 30px;
 	margin-top: 2px;
 	white-space: nowrap;
-	
 }
 
-h1 {
+/* Dit gebied is HEADER Related */
+
+div.header div {
+	width: 220px;
+	background-color: #D7D7D7;
+}
+
+div.header h1 {
 	color: white;
 	display: inline-block;
 	background-color: black;
@@ -18,23 +24,27 @@ h1 {
 	margin-bottom: 0px;
 }
 
-div.header {
-  overflow: hidden;
-  width: 100%;
-  color: #ffffff;
+div.header h2 {
+	color: black;
+	background-color: #D7D7D7;
+	letter-spacing: 0px;
+	font-size: 20px;
+	margin-top: 11px;
+	margin-left: 6px;
 }
+
+div.header {
+	overflow: hidden;
+	color: #ffffff;
+	min-width: 250px;
+}
+
 div.header div,h2,p {
 	float: left;
 }
-/* TODO: Need to find a better way to make this div NOT take up more space than needed, besides a fixed width */
-div.header div {
-	width: 220px;
-}
-div.header p.rules {
-	width: 700px;
-}
 
 p.tagline {
+	background-color: #D7D7D7;
 	color: black;
 	display: block;
 	letter-spacing: 5px;
@@ -43,13 +53,72 @@ p.tagline {
 	font-weight: bold;
 }
 
-h2 {
+/* Dit gebied is ABOUT Related */
+
+div.about {
+	background-color: #000;
+	margin-top: 40px;
+	min-width:;
+	max-width: 335px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	}
+
+div.about h1 {
+	color: #ffffff;
+	background-color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div.about text {
+	font-family: "Helvetica neue", sans-serif;
+	color: gray;
+	font-size: 15px;
+}
+
+div.about text a:link {
+	color: #D7D7D7;
+}
+	
+/* Dit gebied is FOOTER Related */
+
+p.footer {
+	margin-top: 22px;
+}
+
+p.footer a {
+	color: gray;
+	text-decoration: none;
+	
+}
+
+p.footer span a {
 	color: black;
-	background-color: #d7d7d7;
-	letter-spacing: 0px;
-	font-size: 20px;
-	margin-top: 11px;
-	margin-left: 6px;
+		
+}	
+
+/* TODO: Need to find a better way to make this div NOT take up more space than needed, besides a fixed width */
+
+/* Dit gebied is UNKNOWN */
+
+p.about {
+	color: #ffffff;
+	background-color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+p.body {
+	color: gray;
+	font-size: 15px;
+}
+
+
+div.header p.rules {
+	width: 700px;
 }
 
 h3 {
@@ -89,29 +158,3 @@ ol li img {
 	border-style: solid;
 }
 
-p.footer {
-	margin-top: 22px;
-}
-
-p.footer a {
-	color: gray;
-	text-decoration: none;
-	
-}
-
-p.footer span a {
-	color: black;
-		
-}
-
-p.about {
-	color: #ffffff;
-	background-color: #000000;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-p.body {
-	color: gray;
-	font-size: 15px;
-}

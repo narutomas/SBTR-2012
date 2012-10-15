@@ -23,18 +23,22 @@ div.header h1 {
 	margin-bottom: 0px;
 }
 
-div.header h1 a:link, a:visited, a:hover, a:active {
+div.header h1 a:link, div.header h1 a:visited, div.header h1 a:hover, div.header h1 a:active {
 	color: white;
 	text-decoration: none;
 }
 
 div.header h2 {
-	color: black;
 	background-color: #D7D7D7;
 	letter-spacing: 0px;
 	font-size: 20px;
 	margin-top: 11px;
 	margin-left: 6px;
+}
+
+div.header h2 a:link, div.header h2 a:visited, div.header h2 a:hover, div.header h2 a:active {
+	color: black;
+	text-decoration: none;
 }
 
 div.header {

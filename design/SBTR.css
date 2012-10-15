@@ -58,28 +58,28 @@ p.tagline {
 div.about {
 	background-color: #000;
 	margin-top: 40px;
-	min-width:;
 	max-width: 335px;
 	padding-left: 12px;
 	padding-right: 12px;
 	padding-bottom: 12px;
 	padding-top: 12px;
-	}
+	white-space: normal;
+}
 
-div.about h1 {
+div.about h3 {
 	color: #ffffff;
 	background-color: #000000;
 	font-size: 14px;
 	font-weight: bold;
 }
 
-div.about text {
+div.about p {
 	font-family: "Helvetica neue", sans-serif;
 	color: gray;
 	font-size: 15px;
 }
 
-div.about text a:link {
+div.about p a:link {
 	color: #D7D7D7;
 }
 	
@@ -121,7 +121,7 @@ div.header p.rules {
 	width: 700px;
 }
 
-h3 {
+div.photos h3 {
 	background-color: black;
 	color: white;
 	font-weight: bold;

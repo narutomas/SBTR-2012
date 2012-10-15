@@ -48,3 +48,16 @@ class DuelAssociationTest < ActiveSupport::TestCase
     end
   end
 end
+
+class DuelTest < ActiveSupport::TestCase
+  setup do
+    @duel = Duel.new(:number_of_photos_per_contestant => 3)
+  end
+
+  test "is not published by default" do
+    @duel.save(:validate => false)
+    assert !Duel.published.include?(@duel)
+    @duel.update_attribute(:published, true)
+    assert Duel.published.include?(@duel)
+  end
+end

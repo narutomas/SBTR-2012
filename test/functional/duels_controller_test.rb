@@ -11,7 +11,15 @@ class DuelsControllerWithVisitorTest < ActionController::TestCase
     assert_template 'duels/show'
   end
 
-  test "is redirected to the latest duel" do
+  test "does not see an unpublished duel" do
+    duels(:dystopia).update_attribute(:published, false)
+    assert_raises ActiveRecord::RecordNotFound do
+      get :show, :id => duels(:dystopia).to_param
+    end
+  end
+
+  test "is redirected to the latest published duel" do
+    Duel.new(:number_of_photos_per_contestant => 1).save(:validate => false)
     get :latest
     assert_redirected_to duel_url(duels(:dystopia))
   end

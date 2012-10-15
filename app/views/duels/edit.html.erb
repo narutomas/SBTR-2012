@@ -15,6 +15,11 @@
   </div>
 
   <div>
+    <%= f.label :published %>
+    <%= f.check_box :published %>
+  </div>
+
+  <div>
     <%= f.fields_for :contestant_assignments do |caf| %>
       <h3><%= caf.object.contestant.name %></h3>
       <%= caf.fields_for :photos do |pf| %>

@@ -26,11 +26,11 @@ class DuelsController < ApplicationController
   end
 
   def show
-    @duel = Duel.find(params[:id])
+    @duel = Duel.published.find(params[:id])
   end
 
   def latest
-    @duel = Duel.order('id DESC').limit(1).first
+    @duel = Duel.published.order('id DESC').limit(1).first
     redirect_to duel_url(@duel)
   end
 end

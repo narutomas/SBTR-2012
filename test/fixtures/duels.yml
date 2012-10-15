@@ -2,3 +2,4 @@ dystopia:
   title: Dystopia
   rules: TODO
   number_of_photos_per_contestant: 3
+  published: true

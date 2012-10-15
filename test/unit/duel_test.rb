@@ -60,4 +60,18 @@ class DuelTest < ActiveSupport::TestCase
     @duel.update_attribute(:published, true)
     assert Duel.published.include?(@duel)
   end
+
+  test "returns the previous duel, if there is one" do
+    assert_nil duels(:dystopia).previous
+    @duel.published = true
+    @duel.save(:validate => false)
+    assert_equal duels(:dystopia), @duel.previous
+  end
+
+  test "returns the next duel, if there is one" do
+    @duel.save(:validate => false)
+    assert_nil duels(:dystopia).next
+    @duel.update_attribute(:published, true)
+    assert_equal @duel, duels(:dystopia).next
+  end
 end

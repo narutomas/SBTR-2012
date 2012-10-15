@@ -13,6 +13,16 @@ class Duel < ActiveRecord::Base
 
   before_create :assign_contestants_and_photos
 
+  def previous
+    id_column = self.class.arel_table[:id]
+    self.class.published.where(id_column.lt(id)).order('id DESC').first
+  end
+
+  def next
+    id_column = self.class.arel_table[:id]
+    self.class.published.where(id_column.gt(id)).order('id ASC').first
+  end
+
   private
 
   def assign_contestants_and_photos

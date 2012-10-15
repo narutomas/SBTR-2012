@@ -3,7 +3,9 @@
     <h1>SHOOT BY THE RULES</h1>
     <p class="tagline">A PHOTOGRAPHIC DUEL</p>
   </div>
-  <h2><%= @duel.id %>. <%= @duel.title.upcase %></h2>
+  <% if @duel %>
+    <h2><%= @duel.id %>. <%= @duel.title.upcase %></h2>
+  <% end %>
 
   <!--<p class="rules">Black & White or Colour / City Environment / 4 Final Photos / Urban Decay/ / Cant be staged / Outside photography / Outside / Must be shot from a moving object / must be shot using shutter Black & White or Colour / City Environment / speed of 1 second / Cant be staged / Outside photography /Black & White or Colour / City Environment /</p>-->
 </div>

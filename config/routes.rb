@@ -11,5 +11,7 @@ SBTR::Application.routes.draw do
     end
   end
 
+  match "/about", :to => "static#about", :via => :get
+
   root :to => "duels#latest", :via => :get
 end

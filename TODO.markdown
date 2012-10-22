@@ -6,7 +6,7 @@
 * Enable page caching.
 * Add edit Number of photos per contestants?
 
-* retina display support if possible
+* Retina display support. (http://www.fngtps.com/2012/reasonable-ways-to-use-high-resolution-images-on-retina-displays/)
 
 ### Design
 

@@ -3,7 +3,7 @@ class ContestantAssignment < ActiveRecord::Base
 
   belongs_to :contestant
   belongs_to :duel
-  has_many :photos
+  has_many :photos, :order => 'photos.order ASC'
 
   accepts_nested_attributes_for :photos
 end

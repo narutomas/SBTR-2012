@@ -29,8 +29,8 @@ class Duel < ActiveRecord::Base
     Contestant.all.each do |contestant|
       assignment = contestant_assignments.build
       assignment.contestant = contestant
-      number_of_photos_per_contestant.times do
-        assignment.photos.build
+      number_of_photos_per_contestant.times do |index|
+        assignment.photos.build(:order => index+1)
       end
     end
   end

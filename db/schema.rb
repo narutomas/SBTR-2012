@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015195046) do
+ActiveRecord::Schema.define(:version => 20130426160423) do
 
   create_table "contestant_assignments", :force => true do |t|
     t.integer  "contestant_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20121015195046) do
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.string   "image"
+    t.integer  "order"
   end
 
 end

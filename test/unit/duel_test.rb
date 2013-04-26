@@ -47,6 +47,21 @@ class DuelAssociationTest < ActiveSupport::TestCase
       assert_equal 3, ca.photos.count
     end
   end
+
+  test "has a default photo sort order" do
+    @duel.save(:validate => false)
+    assignment = @duel.contestant_assignments.first
+    assert_equal [1, 2, 3], assignment.reload.photos.map(&:order)
+  end
+
+  test "returns photos sorted by the order column" do
+    @duel.save(:validate => false)
+    assignment = @duel.contestant_assignments.first
+    assignment.photos.reverse.each_with_index do |photo, index|
+      photo.update_attribute(:order, index+1)
+    end
+    assert_equal [1, 2, 3], assignment.reload.photos.map(&:order)
+  end
 end
 
 class DuelTest < ActiveSupport::TestCase

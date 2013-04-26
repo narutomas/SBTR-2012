@@ -24,6 +24,7 @@ class Duel < ActiveRecord::Base
   end
 
   def number_of_photos_per_contestant=(number)
+    number = number.to_i
     if before = read_attribute(:number_of_photos_per_contestant)
       if number < before
         contestant_assignments.each do |assignment|

@@ -73,7 +73,7 @@ class DuelAssociationTest < ActiveSupport::TestCase
   test "adds new photo records when the number of photos is increased" do
     @duel.save(:validate => false)
     assert_changes 'Photo.count', +4 do
-      @duel.update_attribute(:number_of_photos_per_contestant, 5)
+      @duel.update_attribute(:number_of_photos_per_contestant, '5')
     end
     assert_equal [1, 2, 3, 4, 5], @duel.contestant_assignments.first.photos.map(&:order)
   end

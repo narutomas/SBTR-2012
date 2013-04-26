@@ -50,8 +50,7 @@ class DuelAssociationTest < ActiveSupport::TestCase
 
   test "has a default photo sort order" do
     @duel.save(:validate => false)
-    assignment = @duel.contestant_assignments.first
-    assert_equal [1, 2, 3], assignment.reload.photos.map(&:order)
+    assert_equal [1, 2, 3], @duel.contestant_assignments.first.photos.map(&:order)
   end
 
   test "returns photos sorted by the order column" do
@@ -63,12 +62,20 @@ class DuelAssociationTest < ActiveSupport::TestCase
     assert_equal [1, 2, 3], assignment.reload.photos.map(&:order)
   end
 
-  test "destroys the last photos when the number of photos is limited" do
+  test "destroys the last photos when the number of photos is decreased" do
     @duel.save(:validate => false)
     ids = @duel.contestant_assignments.map { |assignment| assignment.photos.map(&:id) }
     @duel.update_attribute(:number_of_photos_per_contestant, 2)
     expected = ids.map { |assignment_ids| assignment_ids.first(2) }
     assert_equal expected, @duel.contestant_assignments.map { |assignment| assignment.photos.map(&:id) }
+  end
+
+  test "adds new photo records when the number of photos is increased" do
+    @duel.save(:validate => false)
+    assert_changes 'Photo.count', +4 do
+      @duel.update_attribute(:number_of_photos_per_contestant, 5)
+    end
+    assert_equal [1, 2, 3, 4, 5], @duel.contestant_assignments.first.photos.map(&:order)
   end
 end
 

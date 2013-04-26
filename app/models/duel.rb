@@ -29,6 +29,12 @@ class Duel < ActiveRecord::Base
         contestant_assignments.each do |assignment|
           assignment.photos.last(before - number).each(&:mark_for_destruction)
         end
+      elsif number > before
+        contestant_assignments.each do |assignment|
+          (before + 1).upto(number) do |index|
+            assignment.photos.build(:order => index)
+          end
+        end
       end
     end
     write_attribute(:number_of_photos_per_contestant, number)

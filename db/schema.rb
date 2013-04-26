@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426160423) do
+ActiveRecord::Schema.define(:version => 20130426173519) do
 
   create_table "contestant_assignments", :force => true do |t|
     t.integer  "contestant_id"

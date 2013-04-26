@@ -23,6 +23,7 @@
     <%= f.fields_for :contestant_assignments do |caf| %>
       <h3><%= caf.object.contestant.name %></h3>
       <%= caf.fields_for :photos do |pf| %>
+        <%= pf.hidden_field :order %>
         <% if thumb_url = pf.object.image_url(:thumb) %>
           <%= image_tag thumb_url %>
         <% end %>

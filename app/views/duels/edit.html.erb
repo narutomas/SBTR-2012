@@ -19,18 +19,18 @@
     <%= f.check_box :published %>
   </div>
 
-  <div>
-    <%= f.fields_for :contestant_assignments do |caf| %>
-      <h3><%= caf.object.contestant.name %></h3>
-      <%= caf.fields_for :photos do |pf| %>
-        <%= pf.hidden_field :order %>
-        <% if thumb_url = pf.object.image_url(:thumb) %>
-          <%= image_tag thumb_url %>
-        <% end %>
-        <%= pf.file_field :image, :accept => 'image/*' %>
+  <%= f.fields_for :contestant_assignments do |caf| %>
+    <div>
+    <h3><%= caf.object.contestant.name %></h3>
+    <%= caf.fields_for :photos do |pf| %>
+      <%= pf.hidden_field :order %>
+      <% if thumb_url = pf.object.image_url(:thumb) %>
+        <%= image_tag thumb_url %>
       <% end %>
+      <%= pf.file_field :image, :accept => 'image/*' %>
     <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <div>
     <%= f.submit %>

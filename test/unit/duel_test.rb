@@ -62,6 +62,14 @@ class DuelAssociationTest < ActiveSupport::TestCase
     end
     assert_equal [1, 2, 3], assignment.reload.photos.map(&:order)
   end
+
+  test "destroys the last photos when the number of photos is limited" do
+    @duel.save(:validate => false)
+    ids = @duel.contestant_assignments.map { |assignment| assignment.photos.map(&:id) }
+    @duel.update_attribute(:number_of_photos_per_contestant, 2)
+    expected = ids.map { |assignment_ids| assignment_ids.first(2) }
+    assert_equal expected, @duel.contestant_assignments.map { |assignment| assignment.photos.map(&:id) }
+  end
 end
 
 class DuelTest < ActiveSupport::TestCase

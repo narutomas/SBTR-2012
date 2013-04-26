@@ -23,6 +23,17 @@ class Duel < ActiveRecord::Base
     self.class.published.where(id_column.gt(id)).order('id ASC').first
   end
 
+  def number_of_photos_per_contestant=(number)
+    if before = read_attribute(:number_of_photos_per_contestant)
+      if number < before
+        contestant_assignments.each do |assignment|
+          assignment.photos.last(before - number).each(&:mark_for_destruction)
+        end
+      end
+    end
+    write_attribute(:number_of_photos_per_contestant, number)
+  end
+
   private
 
   def assign_contestants_and_photos
